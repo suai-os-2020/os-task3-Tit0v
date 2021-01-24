@@ -87,7 +87,7 @@ std::vector< std::string > load_solution( int &solution_len )
     solution_len = 0;
 
     std::ostringstream filename;
-    filename << "task" <<  lab3_thread_graph_id() << ".txt";
+    filename << "test\\" << "task" <<  lab3_thread_graph_id() << ".txt";
     std::ifstream solution_file (filename.str());
     // ASSERT_TRUE( solution_file.is_open() ) << "Can't open solution file. Did you mess up with project files?";
     // TODO: make this assert in a toplevel TEST by checking the solution_len variable
@@ -184,10 +184,7 @@ std::vector< std::string > get_interval_contents(std::string output_str, std::ve
 bool is_permutation_str(std::string s1, std::string s2)
 {
     // make sure this runs with C++11 only
-    if (s1.length() > s2.length())
-        return std::is_permutation(s1.begin(), s1.end(), s2.begin());
-    else
-        return std::is_permutation(s2.begin(), s2.end(), s1.begin());
+    return std::is_permutation(s1.begin(), s1.end(), s2.begin(), s2.end());
 }
 
 
